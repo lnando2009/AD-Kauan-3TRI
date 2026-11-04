@@ -1,6 +1,6 @@
-# API de Cadastro, Login e Formulário (Flask + JWT)
+# API de Cadastro, Login e Formulário (Flask)
 
-API REST em Python/Flask com cadastro e login de usuários,a senhas criptografadas (hash) e um formulário de dados pessoais vinculado a cada usuário. O banco de dados é SQLite.
+API REST em Python/Flask com upload e donwload, a senhas criptografadas (hash) e um formulário de dados pessoais vinculado a cada usuário. O banco de dados é SQLite.
 
 ## Tecnologias
 
@@ -59,27 +59,17 @@ O projeto segue uma divisão em camadas: **routes → controllers → models →
 
    A API ficará disponível em `https://ad-kauan-3tri.onrender.com`. As tabelas são criadas automaticamente na primeira execução.
 
-## Autenticação
 
-1. Cadastre-se em `POST /users/register`.
-2. Faça login em `POST /users/login` e copie o `access_token` retornado.
-3. Nas rotas protegidas, envie o token no cabeçalho:
 
-   ```
-   Authorization: Bearer <access_token>
-   ```
 
-## Endpoints
 
 ### Usuários (`/users`)
 
 | Método | Rota              | Protegida | Descrição                          |
 |--------|-------------------|-----------|------------------------------------|
-| POST   | `/users/register` | Não       | Cadastra um novo usuário           |
-| POST   | `/users/login`    | Não       | Autentica e retorna o token JWT    |
+| POST   | `/users/register` | Não       | Upload um novo usuário           |
 | GET    | `/users/me`       | Sim       | Retorna os dados do usuário logado |
-| PUT    | `/users/me`       | Sim       | Atualiza usuário e/ou senha        |
-| DELETE | `/users/me`       | Sim       | Exclui o usuário logado            |
+
 
 ### Formulários (`/formularios`)
 
@@ -92,51 +82,27 @@ O projeto segue uma divisão em camadas: **routes → controllers → models →
 
 ## Exemplos de uso
 
-**Cadastro**
+**Upload**
 
 ```bash
-curl -X POST https://ad-kauan-3tri.onrender.com/users/register \
+curl -X POST https://ad-kauan-3tri.onrender.com/uploads/upload \
   -H "Content-Type: application/json" \
   -d '{"username": "maria", "password": "123456"}'
 ```
 
 Resposta (201): `{"message": "Usuário registrado com sucesso"}`
 
-**Login**
+**Download**
 
 ```bash
-curl -X POST https://ad-kauan-3tri.onrender.com/users/login \
+curl -X GET https://ad-kauan-3tri.onrender.com/downloads/download \
   -H "Content-Type: application/json" \
   -d '{"username": "maria", "password": "123456"}'
 ```
 
 Resposta (200): `{"access_token": "<token>"}`
 
-**Criar formulário**
 
-```bash
-curl -X POST https://ad-kauan-3tri.onrender.com/formularios/ \
-  -H "Authorization: Bearer <token>" \
-  -H "Content-Type: application/json" \
-  -d '{
-        "nome": "Maria Souza",
-        "email": "maria@example.com",
-        "data_nascimento": "1995-04-20",
-        "cpf": "12345678900",
-        "genero": "Feminino"
-      }'
-```
-
-Resposta (201): `{"message": "Formulário criado com sucesso"}`
-
-**Atualizar formulário** (apenas os campos enviados são alterados)
-
-```bash
-curl -X PUT http://127.0.0.1:5000/formularios/1 \
-  -H "Authorization: Bearer <token>" \
-  -H "Content-Type: application/json" \
-  -d '{"email": "novo@example.com"}'
-```
 
 ## Códigos de resposta
 
@@ -145,14 +111,12 @@ curl -X PUT http://127.0.0.1:5000/formularios/1 \
 | 200    | Operação realizada com sucesso                           |
 | 201    | Recurso criado                                           |
 | 400    | Dados obrigatórios ausentes ou usuário já existente      |
-| 401    | Usuário ou senha inválidos / token ausente ou inválido   |
 | 404    | Recurso não encontrado ou sem permissão de acesso        |
 
 ## Banco de dados
 
 **users**: `id`, `username` (único), `password` (hash)
 
-**formularios**: `id`, `user_id` (chave estrangeira para `users`), `nome`, `email`, `data_nascimento`, `cpf`, `genero`
 
 ## Segurança
 
