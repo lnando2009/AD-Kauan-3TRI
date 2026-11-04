@@ -1,0 +1,18 @@
+2026-11-04 10:25:33,016 - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2026-11-04 10:25:33,016 - Press CTRL+C to quit
+2026-11-04 10:25:33,018 -  * Restarting with stat
+2026-11-04 10:25:33,364 -  * Debugger is active!
+2026-11-04 10:25:33,366 -  * Debugger PIN: 591-884-054
+2026-11-04 10:27:24,314 -  * Detected change in 'C:\\Users\\Aluno\\Downloads\\upload+download\\config.py', reloading
+2026-11-04 10:27:24,351 -  * Restarting with stat
+2026-11-04 10:27:24,764 -  * Debugger is active!
+2026-11-04 10:27:24,767 -  * Debugger PIN: 591-884-054
+2026-11-04 10:27:26,857 -  * Detected change in 'C:\\Users\\Aluno\\Downloads\\upload+download\\config.py', reloading
+2026-11-04 10:27:26,893 -  * Restarting with stat
+2026-11-04 10:27:27,235 -  * Debugger is active!
+2026-11-04 10:27:27,237 -  * Debugger PIN: 591-884-054
+2026-11-04 10:27:29,317 -  * Detected change in 'C:\\Users\\Aluno\\Downloads\\upload+download\\config.py', reloading
+2026-11-04 10:27:29,351 -  * Restarting with stat
+2026-11-04 10:27:29,695 -  * Debugger is active!
+2026-11-04 10:27:29,697 -  * Debugger PIN: 591-884-054
