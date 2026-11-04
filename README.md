@@ -57,7 +57,7 @@ O projeto segue uma divisão em camadas: **routes → controllers → models →
    python app.py
    ```
 
-   A API ficará disponível em `http://127.0.0.1:5000`. As tabelas são criadas automaticamente na primeira execução.
+   A API ficará disponível em `https://ad-kauan-3tri.onrender.com`. As tabelas são criadas automaticamente na primeira execução.
 
 ## Autenticação
 
@@ -95,7 +95,7 @@ O projeto segue uma divisão em camadas: **routes → controllers → models →
 **Cadastro**
 
 ```bash
-curl -X POST http://127.0.0.1:5000/users/register \
+curl -X POST https://ad-kauan-3tri.onrender.com/users/register \
   -H "Content-Type: application/json" \
   -d '{"username": "maria", "password": "123456"}'
 ```
@@ -105,7 +105,7 @@ Resposta (201): `{"message": "Usuário registrado com sucesso"}`
 **Login**
 
 ```bash
-curl -X POST http://127.0.0.1:5000/users/login \
+curl -X POST https://ad-kauan-3tri.onrender.com/users/login \
   -H "Content-Type: application/json" \
   -d '{"username": "maria", "password": "123456"}'
 ```
@@ -115,7 +115,7 @@ Resposta (200): `{"access_token": "<token>"}`
 **Criar formulário**
 
 ```bash
-curl -X POST http://127.0.0.1:5000/formularios/ \
+curl -X POST https://ad-kauan-3tri.onrender.com/formularios/ \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
