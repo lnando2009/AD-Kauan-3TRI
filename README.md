@@ -77,8 +77,7 @@ O projeto segue uma divisão em camadas: **routes → controllers → models →
 |--------|---------------------|-----------|----------------------------------------|
 | POST   | `/formularios/`     | Sim       | Cria um formulário para o usuário      |
 | GET    | `/formularios/`     | Sim       | Retorna o formulário do usuário logado |
-| PUT    | `/formularios/<id>` | Sim       | Atualiza um formulário seu             |
-| DELETE | `/formularios/<id>` | Sim       | Exclui um formulário seu               |
+
 
 ## Exemplos de uso
 
@@ -122,6 +121,4 @@ Resposta (200): `{"access_token": "<token>"}`
 
 - As senhas são armazenadas com hash (`generate_password_hash`), nunca em texto puro.
 - As consultas SQL usam parâmetros (`?`), o que evita SQL injection.
-- As rotas protegidas exigem um token JWT válido.
 - Cada usuário só consegue alterar ou excluir os próprios formulários.
-- Em produção, defina a variável `JWT_SECRET_KEY` e desative o `debug=True` do `app.py`.
